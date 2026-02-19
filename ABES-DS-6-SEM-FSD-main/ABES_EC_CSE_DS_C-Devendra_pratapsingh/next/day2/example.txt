@@ -1,0 +1,2 @@
+This data is written through sync function.
+This data is appended through sync function.
