@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Work</title>
+    <style>
+        body { font-family: Arial; margin: 0; }
+        header {
+            background: #333;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+        header a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        .container {
+            text-align: center;
+            margin-top: 40px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div style="color:white;">LOGO</div>
+    <div>
+        <a href="index.html">Home</a>
+        <a href="work.html">Work</a>
+    </div>
+</header>
+
+<div class="container">
+    <h2>Fetch Student Data</h2>
+    <button onclick="getData()">Click Me</button>
+    <p id="result"></p>
+</div>
+
+<script>
+function getData() {
+    fetch("http://localhost:8001/student")
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById("result").innerHTML =
+            "ID: " + data.id + "<br>" +
+            "Name: " + data.name + "<br>" +
+            "Class: " + data.class;
+    })
+    .catch(error => console.log(error));
+}
+</script>
+
+</body>
+</html>
